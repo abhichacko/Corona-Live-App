@@ -1,10 +1,10 @@
 import "./App.css";
-import Home from "./Home";
+import TopNavBar from "./components/TopNavBar/TopNavBar";
 
 function App() {
   return (
     <div>
-      <Home />
+      <TopNavBar></TopNavBar>
     </div>
   );
 }
