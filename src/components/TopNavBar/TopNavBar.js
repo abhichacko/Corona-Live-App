@@ -1,26 +1,29 @@
 import React, { Component } from "react";
-import { Navbar, NavDropdown, Nav } from "react-bootstrap";
-import { Linkwrapper } from "./TopNavBar.styled";
+import { NavDropdown, Nav } from "react-bootstrap";
+import { Linkwrapper, NavBarWrapper } from "./TopNavBar.styled";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "../Home/Home";
+import Home from "../Home";
 import State from "../State";
+import Vaccine from "../Vaccine/Vaccine";
 
 class TopNavBar extends Component {
   state = {};
   render() {
     return (
       <Router>
-        <Navbar bg="light" expand="lg">
-          <Navbar.Brand>
+        <NavBarWrapper collapseOnSelect expand="lg">
+          <NavBarWrapper.Brand>
             <Linkwrapper to="/">Home</Linkwrapper>
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
+          </NavBarWrapper.Brand>
+          <NavBarWrapper.Toggle aria-controls="basic-navbar-nav" />
+          <NavBarWrapper.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link>
                 <Linkwrapper to="/Statewise">Statewise</Linkwrapper>{" "}
               </Nav.Link>
-
+              <Nav.Link>
+                <Linkwrapper to="/Vaccine">Vaccine</Linkwrapper>
+              </Nav.Link>
               <Nav.Link href="#link">Link</Nav.Link>
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -36,15 +39,18 @@ class TopNavBar extends Component {
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+          </NavBarWrapper.Collapse>
+        </NavBarWrapper>
 
         <Switch>
           <Route exact path="/statewise">
             <State />
           </Route>
+          <Route exact path="/Vaccine">
+            <Vaccine />
+          </Route>
           <Route exact path="/">
-            <Home />
+            <Home name="abhilash" />
           </Route>
         </Switch>
       </Router>
