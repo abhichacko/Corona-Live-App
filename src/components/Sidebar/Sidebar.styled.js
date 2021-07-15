@@ -44,3 +44,6 @@ export const ListItemWrapper = styled(ListItem)`
     }
   }
 `;
+export const MainWrapper = styled.main`
+  background: #f6f7fa;
+`;

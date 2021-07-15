@@ -14,6 +14,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import AssessmentIcon from "@material-ui/icons/Assessment";
 
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
@@ -25,10 +26,12 @@ import {
   ListItemWrapper,
   ListItemIconWrapper,
   IconButtonWrapper,
+  MainWrapper,
 } from "./Sidebar.styled";
 import Home from "../Home";
 import State from "../State";
 import Vaccine from "../Vaccine/Vaccine";
+import NotFound from "../NotFound/NotFound";
 
 const drawerWidth = 240;
 
@@ -129,7 +132,7 @@ export default function Sidebar() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap>
+            <Typography variant="h5" noWrap>
               Corona Battle
             </Typography>
           </Toolbar>
@@ -170,7 +173,7 @@ export default function Sidebar() {
             <Linkwrapper to="/Statewise">
               <ListItemWrapper button key="Statewise">
                 <ListItemIconWrapper>
-                  <HomeIcon />
+                  <AssessmentIcon />
                 </ListItemIconWrapper>
                 <ListItemText primary="Statewise" />
               </ListItemWrapper>
@@ -197,8 +200,9 @@ export default function Sidebar() {
             ))}
           </List>
         </Drawer>
-        <main className={classes.content}>
+        <MainWrapper className={classes.content}>
           <div className={classes.toolbar} />
+
           <Switch>
             <Route exact path="/Statewise">
               <State />
@@ -209,8 +213,11 @@ export default function Sidebar() {
             <Route exact path="/">
               <Home name="abhilash" />
             </Route>
+            <Route>
+              <NotFound />
+            </Route>
           </Switch>
-        </main>
+        </MainWrapper>
       </div>
     </Router>
   );

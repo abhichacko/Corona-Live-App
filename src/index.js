@@ -4,10 +4,19 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { theme } from "./styles/theme";
+import { ThemeProvider } from "styled-components";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import { Provider } from "react-redux";
+import store from "./Store/store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
