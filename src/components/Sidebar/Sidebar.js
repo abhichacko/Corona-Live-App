@@ -27,6 +27,7 @@ import {
   ListItemIconWrapper,
   IconButtonWrapper,
   MainWrapper,
+  IconWrapper,
 } from "./Sidebar.styled";
 import Home from "../Home";
 import State from "../State";
@@ -134,6 +135,7 @@ export default function Sidebar() {
             </IconButton>
             <Typography variant="h5" noWrap>
               Corona Battle
+              <IconWrapper className="fas fa-head-side-mask"></IconWrapper>
             </Typography>
           </Toolbar>
         </AppBarWrapper>

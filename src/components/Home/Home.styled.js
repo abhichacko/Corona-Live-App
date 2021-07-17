@@ -8,3 +8,10 @@ export const BodyWrapper = styled.div`
 export const LoaderWrapper = styled.div`
   margin-top: 30vh;
 `;
+
+export const HeadingWrapper = styled.div`
+  margin-top: 3rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+`;

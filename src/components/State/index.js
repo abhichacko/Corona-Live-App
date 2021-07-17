@@ -1,16 +1,25 @@
 import State from "./State";
 import { get } from "lodash";
 import { connect } from "react-redux";
-import { getCovidData, getVaccineData } from "../../Actions/actions";
+import {
+  getCovidData,
+  getVaccineData,
+  getStateWiseData,
+} from "../../Actions/actions";
 
 export const mapStateToProps = (state, ownProps) => {
   let stateWiseSummary = get(state, "stateWiseSummary", null);
-  let isLoading = get(state, "isLoading", false);
+  let isLoadingVaccine = get(state, "isLoadingVaccine", false);
   let lastRefreshed = get(state, "lastRefreshed", null);
+  let isLoadingStateWise = get(state, "isLoadingStateWise", false);
+  let indiaStateWiseData = get(state, "indiaStateWiseData", null);
+
   return {
     stateWiseSummary,
-    isLoading,
+    isLoadingVaccine,
     lastRefreshed,
+    isLoadingStateWise,
+    indiaStateWiseData,
     ...ownProps,
   };
 };
@@ -18,6 +27,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getDataCovid: () => getCovidData(),
     getDataVaccine: () => getVaccineData(),
+    getDataStateWise: () => getStateWiseData(),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(State);

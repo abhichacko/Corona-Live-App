@@ -8,6 +8,8 @@ const initialState = {
   stateWiseSummary: null,
   isLoading: false,
   lastRefreshed: null,
+  isLoadingStateWise: false,
+  indiaStateWiseData: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,9 +18,15 @@ const reducer = (state = initialState, action) => {
     case ACTION_TYPES.GET_COVID_DATA_SUCCESSFUL:
     case ACTION_TYPES.GET_COVID_DATA_FAILURE:
       return { ...state, ...action.payload };
+
     case ACTION_TYPES.GET_VACCINE_DATA_PENDING:
     case ACTION_TYPES.GET_VACCINE_DATA_FAILURE:
     case ACTION_TYPES.GET_VACCINE_DATA_SUCCESSFUL:
+      return { ...state, ...action.payload };
+
+    case ACTION_TYPES.GET_STATEWISE_DATA_PENDING:
+    case ACTION_TYPES.GET_STATE_DATA_SUCCESSFUL:
+    case ACTION_TYPES.GET_STATEWISE_DATA_FAILURE:
       return { ...state, ...action.payload };
     default:
       return state;

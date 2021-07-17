@@ -3,10 +3,11 @@ import { isNull, get } from "lodash";
 import DataCard from "../DataCard/DataCard";
 import Loader from "../Loader/Loader";
 import SubHeader from "../SubHeader/SubHeader";
-import { BodyWrapper, LoaderWrapper } from "./Home.styled";
+import { BodyWrapper, LoaderWrapper, HeadingWrapper } from "./Home.styled";
+import DataTable from "../DataTable/DataTable";
 
 const Home = (props) => {
-  let { indiaVaccineDataSeries } = props;
+  let { indiaVaccineDataSeries, stateWiseTableData } = props;
   let vaccineDataLatest = !isNull(indiaVaccineDataSeries)
     ? indiaVaccineDataSeries[indiaVaccineDataSeries.length - 1]
     : null;
@@ -72,6 +73,13 @@ const Home = (props) => {
                   </div>
                 );
               })}
+            </div>
+
+            <div class="row d-flex align-content-center justify-content-center">
+              <HeadingWrapper>{`State Wise Report`}</HeadingWrapper>
+            </div>
+            <div class="row">
+              {stateWiseTableData && <DataTable data={stateWiseTableData} />}
             </div>
           </BodyWrapper>
         </>

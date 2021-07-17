@@ -47,3 +47,7 @@ export const ListItemWrapper = styled(ListItem)`
 export const MainWrapper = styled.main`
   background: #f6f7fa;
 `;
+
+export const IconWrapper = styled.span`
+  margin-left: 0.5rem;
+`;
