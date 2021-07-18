@@ -1,4 +1,4 @@
-import { get, isNull } from "lodash";
+import { get } from "lodash";
 import axios from "axios";
 import { API_URL } from "../Constants/ApiUrl";
 import { ACTION_TYPES } from "../Constants/ActionTypes";

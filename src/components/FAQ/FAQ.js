@@ -1,7 +1,9 @@
-import { BodyWrapper, LoaderWrapper } from "../Home/Home.styled";
+import AccordionCard from "../AccordianCard/AccordionCard";
 import SubHeader from "../SubHeader/SubHeader";
+import { QuestionAndAnswers } from "../../Constants/FAQuestions";
+import { BodyWrapper } from "./FAQ.styled";
+
 const FAQ = (props) => {
-  console.log(props);
   return (
     <div>
       <SubHeader
@@ -10,7 +12,14 @@ const FAQ = (props) => {
       ></SubHeader>
       <BodyWrapper>
         <div class="container">
-          <div class="row"></div>
+          {QuestionAndAnswers &&
+            QuestionAndAnswers.map((value) => {
+              return (
+                <div class="row col-lg-12">
+                  <AccordionCard data={value} />
+                </div>
+              );
+            })}
         </div>
       </BodyWrapper>
     </div>

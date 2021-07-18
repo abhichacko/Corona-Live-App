@@ -11,12 +11,14 @@ import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import HomeIcon from "@material-ui/icons/Home";
 import MenuIcon from "@material-ui/icons/Menu";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import AssessmentIcon from "@material-ui/icons/Assessment";
 import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
 import ListItemText from "@material-ui/core/ListItemText";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
@@ -27,6 +29,7 @@ import {
   IconButtonWrapper,
   MainWrapper,
   IconWrapper,
+  AnchorWrapper,
 } from "./Sidebar.styled";
 import Home from "../Home";
 import State from "../State";
@@ -213,6 +216,22 @@ export default function Sidebar() {
                 </ListItemWrapper>
               </Tooltip>
             </Linkwrapper>
+          </List>
+          <List style={{ marginTop: `auto` }}>
+            <ListItemWrapper>
+              <ListItemIconWrapper>
+                <AnchorWrapper href="https://www.linkedin.com/in/abhilash-thankachan-43b888162/">
+                  <LinkedInIcon></LinkedInIcon>
+                </AnchorWrapper>
+              </ListItemIconWrapper>
+            </ListItemWrapper>
+            <ListItemWrapper>
+              <ListItemIconWrapper>
+                <AnchorWrapper href="https://github.com/abhichacko">
+                  <GitHubIcon />
+                </AnchorWrapper>
+              </ListItemIconWrapper>
+            </ListItemWrapper>
           </List>
         </Drawer>
         <MainWrapper className={classes.content}>

@@ -12,8 +12,6 @@ const Home = (props) => {
   let { indiaVaccineDataSeries, stateWiseTableData, indiaCaseLastThirtyDays } =
     props;
 
-  console.log(indiaCaseLastThirtyDays, "case series");
-
   let vaccineDataLatest = !isNull(indiaVaccineDataSeries)
     ? indiaVaccineDataSeries[indiaVaccineDataSeries.length - 1]
     : null;
@@ -96,7 +94,7 @@ const Home = (props) => {
         ],
       };
     }
-    console.log(lineChartData, "line chart");
+
     return lineChartData;
   };
 

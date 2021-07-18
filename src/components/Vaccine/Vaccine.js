@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { get, isNull } from "lodash";
 import SubHeader from "../SubHeader/SubHeader";
 import { BodyWrapper, LoaderWrapper } from "../Home/Home.styled";
 import { HeadingWrapper } from "../State/State.styled";
 import DataCard from "../DataCard/DataCard";
 import { Bar } from "react-chartjs-2";
+import Loader from "../Loader/Loader";
 
 const Vaccine = (props) => {
   const {
@@ -66,6 +67,11 @@ const Vaccine = (props) => {
         lastUpdated={lastRefreshed}
       ></SubHeader>
       <BodyWrapper>
+        {isLoadingVaccine && (
+          <LoaderWrapper>
+            <Loader />
+          </LoaderWrapper>
+        )}
         <div class="container">
           <div class="row">
             {!isLoadingVaccine &&

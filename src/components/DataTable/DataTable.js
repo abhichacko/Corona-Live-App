@@ -2,10 +2,9 @@ import { TableWrapper } from "./DataTable.styled";
 import { get } from "lodash";
 
 const DataTable = (props) => {
-  console.log(props, "datatable props");
   const heading = get(props, "data.heading", null);
   const data = get(props, "data.data", null);
-  console.log(heading, "heading");
+
   return (
     <TableWrapper striped bordered hover>
       <thead>

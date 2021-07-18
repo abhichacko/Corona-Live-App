@@ -51,3 +51,13 @@ export const MainWrapper = styled.main`
 export const IconWrapper = styled.span`
   margin-left: 0.5rem;
 `;
+export const AnchorWrapper = styled.a`
+  text-decoration: none;
+  color: inherit;
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    color: inherit;
+  }
+`;

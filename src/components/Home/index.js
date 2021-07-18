@@ -12,11 +12,9 @@ const mapStateToProps = (state, ownProps) => {
     stateWiseSummary,
     indiaCaseSeries,
   } = state;
-  console.log(indiaCaseSeries, "series");
+
   let indiaCaseLastThirtyDays = [];
   if (!isNull(indiaCaseSeries)) {
-    console.log(indiaCaseSeries.length, "length");
-
     let keysLastThirty = takeRight(Object.keys(indiaCaseSeries), 30);
     keysLastThirty.forEach((value) => {
       indiaCaseLastThirtyDays.push(get(indiaCaseSeries, value, null));
@@ -24,7 +22,7 @@ const mapStateToProps = (state, ownProps) => {
   }
 
   let data = [];
-  console.log(stateWiseSummary);
+
   stateWiseSummary &&
     Object.keys(stateWiseSummary).forEach((value) => {
       data.push([
