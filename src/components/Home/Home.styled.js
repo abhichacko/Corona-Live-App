@@ -10,7 +10,8 @@ export const LoaderWrapper = styled.div`
 `;
 
 export const HeadingWrapper = styled.div`
-  margin-top: 3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   text-align: center;
   font-weight: bold;
   font-size: 2rem;

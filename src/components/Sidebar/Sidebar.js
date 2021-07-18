@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-
+import Tooltip from "@material-ui/core/Tooltip";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -31,7 +31,7 @@ import {
 } from "./Sidebar.styled";
 import Home from "../Home";
 import State from "../State";
-import Vaccine from "../Vaccine/Vaccine";
+import Vaccine from "../Vaccine";
 import NotFound from "../NotFound/NotFound";
 
 const drawerWidth = 240;
@@ -165,28 +165,35 @@ export default function Sidebar() {
 
           <List>
             <Linkwrapper to="/">
-              <ListItemWrapper button key="Home">
-                <ListItemIconWrapper>
-                  <HomeIcon />
-                </ListItemIconWrapper>
-                <ListItemText primary="Home" />
-              </ListItemWrapper>
+              <Tooltip title="Home" placement="right" arrow>
+                <ListItemWrapper button key="Home">
+                  <ListItemIconWrapper>
+                    <HomeIcon />
+                  </ListItemIconWrapper>
+                  <ListItemText primary="Home" />
+                </ListItemWrapper>
+              </Tooltip>
             </Linkwrapper>
+
             <Linkwrapper to="/Statewise">
-              <ListItemWrapper button key="Statewise">
-                <ListItemIconWrapper>
-                  <AssessmentIcon />
-                </ListItemIconWrapper>
-                <ListItemText primary="Statewise" />
-              </ListItemWrapper>
+              <Tooltip title="Statewise Report" placement="right" arrow>
+                <ListItemWrapper button key="Statewise">
+                  <ListItemIconWrapper>
+                    <AssessmentIcon />
+                  </ListItemIconWrapper>
+                  <ListItemText primary="Statewise" />
+                </ListItemWrapper>
+              </Tooltip>
             </Linkwrapper>
             <Linkwrapper to="/Vaccine">
-              <ListItemWrapper button key="Statewise">
-                <ListItemIconWrapper>
-                  <LocalHospitalIcon />
-                </ListItemIconWrapper>
-                <ListItemText primary="Vaccination Status" />
-              </ListItemWrapper>
+              <Tooltip title="Vaccination Status" placement="right" arrow>
+                <ListItemWrapper button key="Statewise">
+                  <ListItemIconWrapper>
+                    <LocalHospitalIcon />
+                  </ListItemIconWrapper>
+                  <ListItemText primary="Vaccination Status" />
+                </ListItemWrapper>
+              </Tooltip>
             </Linkwrapper>
           </List>
           <Divider />

@@ -22,17 +22,17 @@ const State = (props) => {
     ? stateWiseSummary.find((value) => value.loc === stateName)
     : null;
   let activeCases =
-    get(stateData, "totalConfirmed", "000") -
-    (get(stateData, "discharged", "000") + get(stateData, "deaths", "000"));
+    get(stateData, "totalConfirmed", "0") -
+    (get(stateData, "discharged", "0") + get(stateData, "deaths", "0"));
   let cardData = [
     {
       heading: "Total Confirmed",
-      number: get(stateData, "totalConfirmed", "000"),
+      number: get(stateData, "totalConfirmed", "0"),
       color: "tan",
     },
     {
       heading: "Recovered",
-      number: get(stateData, "discharged", "000"),
+      number: get(stateData, "discharged", "0"),
       color: "lightgreen",
     },
     {
@@ -42,7 +42,7 @@ const State = (props) => {
     },
     {
       heading: "Total Death",
-      number: get(stateData, "deaths", "000"),
+      number: get(stateData, "deaths", "0"),
       color: "crimson",
     },
   ];
@@ -103,6 +103,7 @@ const State = (props) => {
     props.getDataCovid();
     props.getDataVaccine();
     props.getDataStateWise();
+    window.scrollTo(0, 0);
   }, []);
   useEffect(() => {
     let districtData = indiaStateWiseData && getDistrctData("Kerala");
@@ -130,36 +131,48 @@ const State = (props) => {
             <Loader />
           </LoaderWrapper>
         )}
-        <div class="row d-flex justify-content-end">
-          {!isLoadingVaccine && (
-            <AutoCompletWrapper
-              id="combo-box-demo"
-              options={stateNameList}
-              getOptionLabel={(option) => option.name}
-              style={{ width: 300 }}
-              renderInput={(params) => (
-                <TextField {...params} label="State List" variant="outlined" />
-              )}
-              onChange={setDropdownChange}
-            />
-          )}
+
+        <div class="container">
+          <div class="row d-flex justify-content-end">
+            {!isLoadingVaccine && (
+              <AutoCompletWrapper
+                id="combo-box-demo"
+                options={stateNameList}
+                getOptionLabel={(option) => option.name}
+                style={{ width: 300 }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="State List"
+                    variant="outlined"
+                  />
+                )}
+                onChange={setDropdownChange}
+              />
+            )}
+          </div>
+          <div class="row ">
+            {cardData &&
+              !isLoadingVaccine &&
+              cardData.map((value, index) => {
+                return (
+                  <div class="col-xl-6 col-md-6 col-sm-12">
+                    <DataCard data={value} key={`datacard${index}`}></DataCard>
+                  </div>
+                );
+              })}
+          </div>
         </div>
-        <div class="row ">
-          {cardData &&
-            !isLoadingVaccine &&
-            cardData.map((value, index) => {
-              return (
-                <div class="col-xl-6 col-md-6 col-sm-12">
-                  <DataCard data={value} key={`datacard${index}`}></DataCard>
-                </div>
-              );
-            })}
-        </div>
-        <div class="row d-flex align-content-center justify-content-center">
-          <HeadingWrapper>{`State Wise Report`}</HeadingWrapper>
-        </div>
-        <div class="row">
-          {stateDataDistrictWise && <DataTable data={stateDataDistrictWise} />}
+
+        <div class="container">
+          <div class="row d-flex align-content-center justify-content-center">
+            <HeadingWrapper>{`State Wise Report`}</HeadingWrapper>
+          </div>
+          <div class="row">
+            {stateDataDistrictWise && (
+              <DataTable data={stateDataDistrictWise} />
+            )}
+          </div>
         </div>
       </BodyWrapper>
     </div>

@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 export const CardWrapper = styled(Card)`
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  margin: 2rem;
-  margin-bottom: 1rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
   background-color: white;
   background-color: ${(props) => props.variant};
   color: ${(props) => props.variant === "red" && "white"};

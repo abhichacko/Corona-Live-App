@@ -11,26 +11,26 @@ const DataCard = (props) => {
   let iconClassName = "";
 
   const { heading, number, color } = props.data;
-  switch (heading) {
-    case "Total Death":
+  switch (color) {
+    case "crimson":
       iconClassName = "fa fa-sad-tear";
       break;
-    case "Vaccinated Dose 1":
+    case "limegreen":
       iconClassName = "fas fa-syringe";
       break;
-    case "Recovered":
+    case "lightgreen":
       iconClassName = "fas fa-smile-beam";
       break;
-    case "Active Cases":
+    case "gold":
       iconClassName = "fas fa-exclamation-triangle";
       break;
-    case "Total Confirmed":
+    case "tan":
       iconClassName = "fas fa-bacteria";
       break;
     case "Active Cases":
       iconClassName = "fas fa-bacteria";
       break;
-    case "Vaccinated Dose 2":
+    case "darkgrey":
       iconClassName = "fas fa-syringe";
       break;
     default:

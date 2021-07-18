@@ -2,7 +2,6 @@ import React from "react";
 import { HeadingWrapper, DateWrapper } from "./SubHeader.styled";
 
 const SubHeader = (props) => {
-  console.log(props);
   return (
     <div className="d-flex flex-row justify-content-start align-items-center">
       <HeadingWrapper className="col-lg-8 col-sm-8 col-md-8">

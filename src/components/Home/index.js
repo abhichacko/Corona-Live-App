@@ -1,7 +1,7 @@
 import Home from "./Home";
 import { connect } from "react-redux";
 import { getCovidData, getVaccineData } from "../../Actions/actions";
-import { get } from "lodash";
+import { get, isNull, takeRight } from "lodash";
 
 const mapStateToProps = (state, ownProps) => {
   let {
@@ -10,12 +10,23 @@ const mapStateToProps = (state, ownProps) => {
     lastRefreshed,
     indiaVaccineDataSeries,
     stateWiseSummary,
+    indiaCaseSeries,
   } = state;
+  console.log(indiaCaseSeries, "series");
+  let indiaCaseLastThirtyDays = [];
+  if (!isNull(indiaCaseSeries)) {
+    console.log(indiaCaseSeries.length, "length");
+
+    let keysLastThirty = takeRight(Object.keys(indiaCaseSeries), 30);
+    keysLastThirty.forEach((value) => {
+      indiaCaseLastThirtyDays.push(get(indiaCaseSeries, value, null));
+    });
+  }
+
   let data = [];
   console.log(stateWiseSummary);
   stateWiseSummary &&
     Object.keys(stateWiseSummary).forEach((value) => {
-      console.log(value, "value****");
       data.push([
         get(stateWiseSummary[value], "loc", "-"),
         get(stateWiseSummary[value], "totalConfirmed", 0) -
@@ -43,6 +54,7 @@ const mapStateToProps = (state, ownProps) => {
     lastRefreshed,
     indiaVaccineDataSeries,
     stateWiseTableData,
+    indiaCaseLastThirtyDays,
     ownProps,
   };
 };
