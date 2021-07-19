@@ -15,10 +15,9 @@ import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import AssessmentIcon from "@material-ui/icons/Assessment";
-
+import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   Linkwrapper,
@@ -33,6 +32,7 @@ import Home from "../Home";
 import State from "../State";
 import Vaccine from "../Vaccine";
 import NotFound from "../NotFound/NotFound";
+import FAQ from "../FAQ/FAQ";
 
 const drawerWidth = 240;
 
@@ -199,14 +199,20 @@ export default function Sidebar() {
           <Divider />
 
           <List>
-            {["All mail", "Trash", "Spam"].map((text, index) => (
-              <ListItemWrapper button key={text}>
-                <ListItemIconWrapper>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIconWrapper>
-                <ListItemText primary={text} />
-              </ListItemWrapper>
-            ))}
+            <Linkwrapper to="/FAQ">
+              <Tooltip
+                title="Frequently Asked Questions"
+                placement="right"
+                arrow
+              >
+                <ListItemWrapper button key="FAQ">
+                  <ListItemIconWrapper>
+                    <QuestionAnswerIcon />
+                  </ListItemIconWrapper>
+                  <ListItemText primary="FAQ" />
+                </ListItemWrapper>
+              </Tooltip>
+            </Linkwrapper>
           </List>
         </Drawer>
         <MainWrapper className={classes.content}>
@@ -218,6 +224,9 @@ export default function Sidebar() {
             </Route>
             <Route exact path="/Vaccine">
               <Vaccine />
+            </Route>
+            <Route exact path="/FAQ">
+              <FAQ />
             </Route>
             <Route exact path="/">
               <Home name="abhilash" />

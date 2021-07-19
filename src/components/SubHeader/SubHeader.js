@@ -8,11 +8,16 @@ const SubHeader = (props) => {
         {props.heading}
       </HeadingWrapper>
 
-      <DateWrapper className="col-lg-4 col-sm-4 col-md-4">
-        {`Last updated : ${props.lastUpdated}`}
-      </DateWrapper>
+      {props.isSubHeading && (
+        <DateWrapper className="col-lg-4 col-sm-4 col-md-4">
+          {`Last updated : ${props.lastUpdated}`}
+        </DateWrapper>
+      )}
     </div>
   );
 };
 
+SubHeader.defaultProps = {
+  isSubHeading: true,
+};
 export default SubHeader;

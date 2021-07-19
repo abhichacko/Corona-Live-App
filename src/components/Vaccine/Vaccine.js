@@ -2,43 +2,48 @@ import React, { useState, useEffect } from "react";
 import { get, isNull } from "lodash";
 import SubHeader from "../SubHeader/SubHeader";
 import { BodyWrapper, LoaderWrapper } from "../Home/Home.styled";
+import { HeadingWrapper } from "../State/State.styled";
 import DataCard from "../DataCard/DataCard";
+import { Bar } from "react-chartjs-2";
+
 const Vaccine = (props) => {
-  const { lastRefreshed, indiaVaccineDataSeries, isLoadingVaccine } = props;
-  console.log(indiaVaccineDataSeries, "vaccine series");
-  let lastDayVaccineData = null;
+  const {
+    lastRefreshed,
+    vaccineDataForChart,
+    isLoadingVaccine,
+    lastDayVaccineData,
+  } = props;
+
   let cardData = [];
-  if (!isNull(indiaVaccineDataSeries)) {
-    lastDayVaccineData =
-      indiaVaccineDataSeries[indiaVaccineDataSeries.length - 1];
+  if (!isNull(lastDayVaccineData)) {
     cardData = [
       {
-        heading: "Total Doses Administered",
+        heading: "Total Doses Administered (1st + 2nd)",
         number: get(lastDayVaccineData, "totaldosesadministered", "0"),
-        color: "tan",
+        color: "darkgrey",
       },
       {
-        heading: "1st Dose Administered",
+        heading: "Total 1st Dose Administered",
         number: get(lastDayVaccineData, "firstdoseadministered", "0"),
-        color: "lightgreen",
+        color: "limegreen",
       },
       {
-        heading: "2nd Dose Administered",
+        heading: "Total 2nd Dose Administered",
         number: get(lastDayVaccineData, "seconddoseadministered", "0"),
-        color: "gold",
+        color: "darkgrey",
       },
       {
-        heading: "45+ Age 2nd Dose",
+        heading: "45+ Age Citizens 2nd Dose ",
         number: get(lastDayVaccineData, "over45years2nddose", "0"),
         color: "limegreen",
       },
       {
-        heading: "60+ Age 2nd Dose ",
+        heading: "60+ Age Citizens 2nd Dose ",
         number: get(lastDayVaccineData, "over60years2nddose", "0"),
         color: "darkgrey",
       },
       {
-        heading: "Health Workers 2nd Dose",
+        heading: "Health Workers 2nd Dose Adminstered",
         number: get(
           lastDayVaccineData,
           "healthcareworkersvaccinated2nddose",
@@ -57,7 +62,7 @@ const Vaccine = (props) => {
   return (
     <div>
       <SubHeader
-        heading={"Vaccination Status"}
+        heading={"India Vaccination Status"}
         lastUpdated={lastRefreshed}
       ></SubHeader>
       <BodyWrapper>
@@ -73,6 +78,16 @@ const Vaccine = (props) => {
                 );
               })}
           </div>
+        </div>
+        <div class="container">
+          <div class="row d-flex align-content-center justify-content-center">
+            <HeadingWrapper>{`Last ${get(
+              vaccineDataForChart,
+              "days",
+              0
+            )} Days Vaccination Status`}</HeadingWrapper>
+          </div>
+          <Bar data={vaccineDataForChart} />
         </div>
       </BodyWrapper>
     </div>

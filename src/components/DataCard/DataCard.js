@@ -10,7 +10,7 @@ import { Card } from "react-bootstrap";
 const DataCard = (props) => {
   let iconClassName = "";
 
-  const { heading, number, color } = props.data;
+  const { heading, number, color, subHeading } = props.data;
   switch (color) {
     case "crimson":
       iconClassName = "fa fa-sad-tear";
@@ -44,6 +44,7 @@ const DataCard = (props) => {
 
         <TextWrapper>{number}</TextWrapper>
         <TitleWrapper> {heading} </TitleWrapper>
+        <TitleWrapper> {subHeading} </TitleWrapper>
       </Card.Body>
     </CardWrapper>
   );
