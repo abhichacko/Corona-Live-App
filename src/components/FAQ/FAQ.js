@@ -13,10 +13,10 @@ const FAQ = (props) => {
       <BodyWrapper>
         <div class="container">
           {QuestionAndAnswers &&
-            QuestionAndAnswers.map((value) => {
+            QuestionAndAnswers.map((value, index) => {
               return (
                 <div class="row col-lg-12">
-                  <AccordionCard data={value} />
+                  <AccordionCard data={value} key={`faq-card${index}`} />
                 </div>
               );
             })}

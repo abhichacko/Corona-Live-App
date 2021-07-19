@@ -78,10 +78,13 @@ const Vaccine = (props) => {
           <div class="row">
             {!isLoadingVaccine &&
               cardData &&
-              cardData.map((value) => {
+              cardData.map((value, index) => {
                 return (
                   <div class="col-lg-4 col-md-6 col-sm-12">
-                    <DataCard data={value}></DataCard>
+                    <DataCard
+                      data={value}
+                      key={`datacard-vaccine-${index}`}
+                    ></DataCard>
                   </div>
                 );
               })}

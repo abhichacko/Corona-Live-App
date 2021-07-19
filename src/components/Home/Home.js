@@ -122,10 +122,13 @@ const Home = (props) => {
               <div class="row ">
                 {data.map((value, index) => {
                   return (
-                    <div class="col-xl-4 col-md-6 col-sm-12">
+                    <div
+                      class="col-xl-4 col-md-6 col-sm-12"
+                      key={`datacard-div-${index}`}
+                    >
                       <DataCard
                         data={value}
-                        key={`datacard${index}`}
+                        key={`datacard-${index}`}
                       ></DataCard>
                     </div>
                   );

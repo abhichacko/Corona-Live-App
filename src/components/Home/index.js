@@ -60,6 +60,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getDataCovid: () => getCovidData(),
     getDataVaccine: () => getVaccineData(),
+    dispatch,
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

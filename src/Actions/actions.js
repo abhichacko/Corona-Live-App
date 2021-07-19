@@ -3,6 +3,7 @@ import axios from "axios";
 import { API_URL } from "../Constants/ApiUrl";
 import { ACTION_TYPES } from "../Constants/ActionTypes";
 import store from "../Store/store";
+import { vaccineData, covidData, stateWiseData } from "../Constants/mockData";
 
 let { dispatch } = store;
 export const getCovidData = async () => {
@@ -10,8 +11,9 @@ export const getCovidData = async () => {
     type: ACTION_TYPES.GET_COVID_DATA_PENDING,
     payload: {
       isLoading: true,
-      indiaSummaryToday: null,
-      stateWiseSummary: null,
+      indiaSummaryToday: get(covidData, "data.summary", null),
+      lastRefreshed: get(covidData, "lastRefreshed", null),
+      stateWiseSummary: get(covidData, "data.regional", null),
     },
   });
   await axios
@@ -21,9 +23,21 @@ export const getCovidData = async () => {
         type: ACTION_TYPES.GET_COVID_DATA_SUCCESSFUL,
         payload: {
           isLoading: false,
-          indiaSummaryToday: get(response.data, "data.summary", null),
-          lastRefreshed: get(response.data, "lastRefreshed", null),
-          stateWiseSummary: get(response.data, "data.regional", null),
+          indiaSummaryToday: get(
+            response.data,
+            "data.summary",
+            get(covidData, "data.summary", null)
+          ),
+          lastRefreshed: get(
+            response.data,
+            "lastRefreshed",
+            get(covidData, "lastRefreshed", null)
+          ),
+          stateWiseSummary: get(
+            response.data,
+            "data.regional",
+            get(covidData, "data.regional", null)
+          ),
           isErrorOccured: false,
         },
       });
@@ -34,9 +48,9 @@ export const getCovidData = async () => {
         type: ACTION_TYPES.GET_COVID_DATA_FAILURE,
         payload: {
           isLoading: false,
-          indiaSummaryToday: null,
-          lastRefreshed: null,
-          stateWiseSummary: null,
+          indiaSummaryToday: get(covidData, "data.summary", null),
+          lastRefreshed: get(covidData, "lastRefreshed", null),
+          stateWiseSummary: get(covidData, "data.regional", null),
           isErrorOccured: true,
         },
       });
@@ -59,8 +73,16 @@ export const getVaccineData = async () => {
         type: ACTION_TYPES.GET_VACCINE_DATA_SUCCESSFUL,
         payload: {
           isLoadingVaccine: false,
-          indiaVaccineDataSeries: get(response, "data.tested", null),
-          indiaCaseSeries: get(response, "data.cases_time_series", null),
+          indiaVaccineDataSeries: get(
+            response,
+            "data.tested",
+            get(vaccineData, "tested", null)
+          ),
+          indiaCaseSeries: get(
+            response,
+            "data.cases_time_series",
+            get(vaccineData, "cases_time_series", null)
+          ),
           isErrorOccured: false,
         },
       });
@@ -71,8 +93,8 @@ export const getVaccineData = async () => {
         type: ACTION_TYPES.GET_VACCINE_DATA_FAILURE,
         payload: {
           isLoadingVaccine: false,
-          indiaVaccineDataSeries: null,
-          indiaCaseSeries: null,
+          indiaVaccineDataSeries: get(vaccineData, "tested", null),
+          indiaCaseSeries: get(vaccineData, "cases_time_series", null),
           isErrorOccured: true,
         },
       });
@@ -94,7 +116,7 @@ export const getStateWiseData = async () => {
         type: ACTION_TYPES.GET_STATE_DATA_SUCCESSFUL,
         payload: {
           isLoadingStateWise: false,
-          indiaStateWiseData: get(response, "data", null),
+          indiaStateWiseData: get(response, "data", stateWiseData),
           isErrorOccured: false,
         },
       });
@@ -105,7 +127,7 @@ export const getStateWiseData = async () => {
         type: ACTION_TYPES.GET_STATEWISE_DATA_FAILURE,
         payload: {
           isLoadingStateWise: false,
-          indiaStateWiseData: null,
+          indiaStateWiseData: stateWiseData,
           isErrorOccured: true,
         },
       });

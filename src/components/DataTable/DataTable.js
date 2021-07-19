@@ -11,7 +11,7 @@ const DataTable = (props) => {
         <tr>
           {heading &&
             heading.map((headingValue, index) => {
-              return <th> {headingValue}</th>;
+              return <th key={`th-${index}`}> {headingValue}</th>;
             })}
         </tr>
       </thead>
@@ -19,9 +19,9 @@ const DataTable = (props) => {
         {data &&
           data.map((tdData, index) => {
             return (
-              <tr>
+              <tr key={`tr-${index}`}>
                 {tdData.map((tdValue, index) => {
-                  return <td>{tdValue}</td>;
+                  return <td key={`td-${index}`}>{tdValue}</td>;
                 })}
               </tr>
             );
