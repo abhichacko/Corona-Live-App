@@ -8,7 +8,7 @@ export const HeadingWrapper = styled.div`
   font-size: 2rem;
 `;
 export const DateWrapper = styled.div`
-  text-align: center;
+  text-align: right;
   font-weight: bold;
   font-size: 1rem;
 `;

@@ -12,6 +12,10 @@ export const AccordionTitleWrapper = styled.div`
 export const AccordionHeaderWrapper = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
+  @media only screen and (max-width: 500px) {
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
 `;
 export const IconWrapper = styled.i`
   font-size: 1.5rem;

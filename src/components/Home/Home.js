@@ -102,6 +102,7 @@ const Home = (props) => {
     props.getDataCovid();
     props.getDataVaccine();
     window.scrollTo(0, 0);
+    // eslint-disable-next-line
   }, []);
   return (
     <div>

@@ -50,6 +50,7 @@ export const MainWrapper = styled.main`
 
 export const IconWrapper = styled.span`
   margin-left: 0.5rem;
+  font-size: 2rem;
 `;
 export const AnchorWrapper = styled.a`
   text-decoration: none;

@@ -1,8 +1,15 @@
 import styled from "styled-components";
-export const FooterWrapper = styled.div``;
+export const FooterWrapper = styled.div`
+  margin: 1rem;
+`;
 
-export const IconWrapper = styled.i`
-  margin-left: 1rem;
-  font-size: 2rem;
-  color: black;
+export const AnchorWrapper = styled.a`
+  text-decoration: none;
+  color: inherit;
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
 `;

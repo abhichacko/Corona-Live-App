@@ -36,6 +36,7 @@ import State from "../State";
 import Vaccine from "../Vaccine";
 import NotFound from "../NotFound/NotFound";
 import FAQ from "../FAQ/FAQ";
+import Footer from "../Footer/Footer";
 
 const drawerWidth = 240;
 
@@ -136,10 +137,12 @@ export default function Sidebar() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h5" noWrap>
-              Corona Battle
-              <IconWrapper className="fas fa-head-side-mask"></IconWrapper>
-            </Typography>
+            <div class="row">
+              <Typography variant="h5" noWrap>
+                Corona Battle
+              </Typography>
+              <IconWrapper className="fas fa-shield-virus"></IconWrapper>
+            </div>
           </Toolbar>
         </AppBarWrapper>
         <Drawer
@@ -218,20 +221,26 @@ export default function Sidebar() {
             </Linkwrapper>
           </List>
           <List style={{ marginTop: `auto` }}>
-            <ListItemWrapper>
-              <ListItemIconWrapper>
-                <AnchorWrapper href="https://www.linkedin.com/in/abhilash-thankachan-43b888162/">
-                  <LinkedInIcon></LinkedInIcon>
-                </AnchorWrapper>
-              </ListItemIconWrapper>
-            </ListItemWrapper>
-            <ListItemWrapper>
-              <ListItemIconWrapper>
-                <AnchorWrapper href="https://github.com/abhichacko">
-                  <GitHubIcon />
-                </AnchorWrapper>
-              </ListItemIconWrapper>
-            </ListItemWrapper>
+            <AnchorWrapper href="https://www.linkedin.com/in/abhilash-thankachan-43b888162/">
+              <Tooltip title="Find Me On Linkedin" placement="right" arrow>
+                <ListItemWrapper button key="linkedin">
+                  <ListItemIconWrapper>
+                    <LinkedInIcon />
+                  </ListItemIconWrapper>
+                  <ListItemText primary="Linkedin" />
+                </ListItemWrapper>
+              </Tooltip>
+            </AnchorWrapper>
+            <AnchorWrapper href="https://github.com/abhichacko">
+              <Tooltip title="Find Me On Github" placement="right" arrow>
+                <ListItemWrapper button key="github">
+                  <ListItemIconWrapper>
+                    <GitHubIcon />
+                  </ListItemIconWrapper>
+                  <ListItemText primary="GitHub" />
+                </ListItemWrapper>
+              </Tooltip>
+            </AnchorWrapper>
           </List>
         </Drawer>
         <MainWrapper className={classes.content}>
@@ -254,6 +263,7 @@ export default function Sidebar() {
               <NotFound />
             </Route>
           </Switch>
+          <Footer />
         </MainWrapper>
       </div>
     </Router>

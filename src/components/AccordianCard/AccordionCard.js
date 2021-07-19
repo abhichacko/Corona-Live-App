@@ -13,11 +13,15 @@ const AccordionCard = (props) => {
   return (
     <AccordionWrapper>
       <AccordionSummary>
-        <div class="col-lg-2">
-          <IconWrapper className="fas fa-plus-square" />
-        </div>
-        <div class="col-lg-10">
-          <AccordionHeaderWrapper>{props.data.question}</AccordionHeaderWrapper>
+        <div class="row d-flex flex-lg-row flex-sm-column w-100">
+          <div class="col-lg-1 col-md-1 col-sm-1">
+            <IconWrapper className="fas fa-plus-square" />
+          </div>
+          <div class="col-lg-11 col-md-11 col-sm-11">
+            <AccordionHeaderWrapper>
+              {props.data.question}
+            </AccordionHeaderWrapper>
+          </div>
         </div>
       </AccordionSummary>
 

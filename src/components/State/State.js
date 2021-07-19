@@ -104,6 +104,7 @@ const State = (props) => {
     props.getDataVaccine();
     props.getDataStateWise();
     window.scrollTo(0, 0);
+    // eslint-disable-next-line
   }, []);
   useEffect(() => {
     let districtData = indiaStateWiseData && getDistrctData("Kerala");
@@ -118,6 +119,7 @@ const State = (props) => {
       data: districtData,
     };
     setStateDataDistrictWise(districtWiseData);
+    // eslint-disable-next-line
   }, [indiaStateWiseData]);
   return (
     <div>

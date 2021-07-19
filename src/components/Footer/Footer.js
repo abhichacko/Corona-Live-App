@@ -1,12 +1,12 @@
-import { FooterWrapper, IconWrapper } from "./Footer.styled";
+import { FooterWrapper, AnchorWrapper } from "./Footer.styled";
 
 const Footer = () => {
   return (
-    <div class="row">
-      <FooterWrapper className="d-flex">
-        footer
-        <IconWrapper className="fab fa-linkedin" />
-        <IconWrapper className="fab fa-github" />
+    <div class="container">
+      <FooterWrapper className="d-flex justify-content-center">
+        <AnchorWrapper href="https://www.linkedin.com/in/abhilash-thankachan-43b888162/">
+          Developed by &copy; Abhilash Thankachan
+        </AnchorWrapper>
       </FooterWrapper>
     </div>
   );
