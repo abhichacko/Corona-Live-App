@@ -20,7 +20,12 @@ import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
 import ListItemText from "@material-ui/core/ListItemText";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  HashRouter,
+  Switch,
+  Route,
+} from "react-router-dom";
 import {
   Linkwrapper,
   AppBarWrapper,
@@ -116,7 +121,8 @@ export default function Sidebar() {
   };
 
   return (
-    <Router>
+    // <Router> commented out because its not supported in githubpages
+    <HashRouter>
       <div className={classes.root}>
         <CssBaseline />
         <AppBarWrapper
@@ -266,6 +272,7 @@ export default function Sidebar() {
           <Footer />
         </MainWrapper>
       </div>
-    </Router>
+    </HashRouter>
+    // </Router> comments becusse its not supported in github pages
   );
 }
