@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/Corona-Live-App/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/Corona-Live-App/static/js/main.aa94b20d.chunk.js",
-    "main.js.map": "/Corona-Live-App/static/js/main.aa94b20d.chunk.js.map",
+    "main.js": "/Corona-Live-App/static/js/main.ee32bbab.chunk.js",
+    "main.js.map": "/Corona-Live-App/static/js/main.ee32bbab.chunk.js.map",
     "runtime-main.js": "/Corona-Live-App/static/js/runtime-main.e4b99838.js",
     "runtime-main.js.map": "/Corona-Live-App/static/js/runtime-main.e4b99838.js.map",
     "static/css/2.06246bd8.chunk.css": "/Corona-Live-App/static/css/2.06246bd8.chunk.css",
-    "static/js/2.6f031c84.chunk.js": "/Corona-Live-App/static/js/2.6f031c84.chunk.js",
-    "static/js/2.6f031c84.chunk.js.map": "/Corona-Live-App/static/js/2.6f031c84.chunk.js.map",
+    "static/js/2.f0105b41.chunk.js": "/Corona-Live-App/static/js/2.f0105b41.chunk.js",
+    "static/js/2.f0105b41.chunk.js.map": "/Corona-Live-App/static/js/2.f0105b41.chunk.js.map",
     "static/js/3.1c7e249a.chunk.js": "/Corona-Live-App/static/js/3.1c7e249a.chunk.js",
     "static/js/3.1c7e249a.chunk.js.map": "/Corona-Live-App/static/js/3.1c7e249a.chunk.js.map",
     "index.html": "/Corona-Live-App/index.html",
     "static/css/2.06246bd8.chunk.css.map": "/Corona-Live-App/static/css/2.06246bd8.chunk.css.map",
     "static/css/main.9d5b29c0.chunk.css.map": "/Corona-Live-App/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.6f031c84.chunk.js.LICENSE.txt": "/Corona-Live-App/static/js/2.6f031c84.chunk.js.LICENSE.txt",
+    "static/js/2.f0105b41.chunk.js.LICENSE.txt": "/Corona-Live-App/static/js/2.f0105b41.chunk.js.LICENSE.txt",
     "static/media/all.min.css": "/Corona-Live-App/static/media/fa-solid-900.eeccf4f6.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.e4b99838.js",
     "static/css/2.06246bd8.chunk.css",
-    "static/js/2.6f031c84.chunk.js",
+    "static/js/2.f0105b41.chunk.js",
     "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.aa94b20d.chunk.js"
+    "static/js/main.ee32bbab.chunk.js"
   ]
 }
