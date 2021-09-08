@@ -6,6 +6,7 @@ import { HeadingWrapper } from "../State/State.styled";
 import DataCard from "../DataCard/DataCard";
 import { Bar } from "react-chartjs-2";
 import Loader from "../Loader/Loader";
+import { GraphContainer } from "../Home/Home.styled";
 
 const Vaccine = (props) => {
   const {
@@ -91,14 +92,19 @@ const Vaccine = (props) => {
           </div>
         </div>
         <div class="container">
-          <div class="row d-flex align-content-center justify-content-center">
+          <div class="row d-flex flex-column align-content-center justify-content-center">
             <HeadingWrapper>{`Last ${get(
               vaccineDataForChart,
               "days",
               0
             )} Days Vaccination Status`}</HeadingWrapper>
           </div>
-          <Bar data={vaccineDataForChart} />
+          <GraphContainer class="row">
+            <Bar
+              data={vaccineDataForChart}
+              options={{ maintainAspectRatio: false }}
+            />
+          </GraphContainer>
         </div>
       </BodyWrapper>
     </div>

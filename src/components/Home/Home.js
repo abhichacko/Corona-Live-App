@@ -4,7 +4,12 @@ import { isNull, get } from "lodash";
 import DataCard from "../DataCard/DataCard";
 import Loader from "../Loader/Loader";
 import SubHeader from "../SubHeader/SubHeader";
-import { BodyWrapper, LoaderWrapper, HeadingWrapper } from "./Home.styled";
+import {
+  BodyWrapper,
+  LoaderWrapper,
+  HeadingWrapper,
+  GraphContainer,
+} from "./Home.styled";
 import DataTable from "../DataTable/DataTable";
 import { theme } from "../../styles/theme";
 
@@ -140,9 +145,12 @@ const Home = (props) => {
               <HeadingWrapper>{`Last 30 Days Report`}</HeadingWrapper>
             </div>
             <div class="container">
-              <div class="row">
-                <Line data={getLineChartData()}></Line>
-              </div>
+              <GraphContainer class="row">
+                <Line
+                  data={getLineChartData()}
+                  options={{ maintainAspectRatio: false }}
+                ></Line>
+              </GraphContainer>
             </div>
             <div class="container">
               <div class="row d-flex flex-column align-content-center justify-content-center">

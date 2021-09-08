@@ -19,3 +19,10 @@ export const HeadingWrapper = styled.div`
     font-size: 1.5rem;
   }
 `;
+
+export const GraphContainer = styled.div`
+  min-height: 70vh;
+  @media only screen and (max-width: 600px) {
+    min-height: 50vh;
+  }
+`;
