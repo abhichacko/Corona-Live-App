@@ -10,9 +10,15 @@ const NotFound = () => {
           <h1>Error 404</h1>
         </ErrorWrapper>
         <ErrorWrapper>
-          <Linkwrapper to="/" className="d-flex">
-            <h2>Page Not Found Go To Home </h2>
-            <IconWrapper className="fa fa-home" />
+          <Linkwrapper to="/">
+            <div class="d-flex flex-lg-row flex-sm-column row align-items-center justify-content-center">
+              <div>
+                <h2>Page Not Found Go To Home </h2>
+              </div>
+              <div>
+                <IconWrapper className="fa fa-home" />
+              </div>
+            </div>
           </Linkwrapper>
         </ErrorWrapper>
       </DivWrapper>

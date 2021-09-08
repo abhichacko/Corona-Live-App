@@ -6,7 +6,7 @@ const DataTable = (props) => {
   const data = get(props, "data.data", null);
 
   return (
-    <TableWrapper striped bordered hover>
+    <TableWrapper striped bordered hover responsive>
       <thead>
         <tr>
           {heading &&

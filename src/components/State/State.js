@@ -153,7 +153,7 @@ const State = (props) => {
               />
             )}
           </div>
-          <div class="row ">
+          <div class="row d-flex flex-sm-column flex-lg-row">
             {cardData &&
               !isLoadingVaccine &&
               cardData.map((value, index) => {

@@ -5,10 +5,10 @@ export const DivWrapper = styled.div`
 `;
 export const ErrorWrapper = styled.div`
   h1 {
-    font-size: 50px;
+    font-size: 4rem;
     color: ${(props) => props.theme.color.purple};
     display: inline-block;
-    padding-right: 12px;
+    padding-right: 2vh;
     animation: type 0.5s alternate infinite;
     @keyframes type {
       from {
@@ -19,10 +19,21 @@ export const ErrorWrapper = styled.div`
       }
     }
   }
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 2.1rem;
+    }
+    h2 {
+      font-size: 0.8rem;
+    }
+  }
 `;
 
 export const IconWrapper = styled.i`
   margin-left: 1rem;
   font-size: 2rem;
   color: ${(props) => props.theme.color.purple};
+  @media only screen and (max-width: 600px) {
+    font-size: 1.5rem;
+  }
 `;

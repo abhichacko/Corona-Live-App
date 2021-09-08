@@ -117,13 +117,13 @@ const Home = (props) => {
             heading={"India"}
             lastUpdated={props.lastRefreshed}
           ></SubHeader>
-          <BodyWrapper id="home-container">
+          <BodyWrapper>
             <div class="container">
-              <div class="row ">
+              <div class="row d-flex flex-lg-row flex-md-row flex-sm-column">
                 {data.map((value, index) => {
                   return (
                     <div
-                      class="col-xl-4 col-md-6 col-sm-12"
+                      class="col-xl-4 col-lg-4 col-md-6 col-sm-12"
                       key={`datacard-div-${index}`}
                     >
                       <DataCard
@@ -145,12 +145,16 @@ const Home = (props) => {
               </div>
             </div>
             <div class="container">
-              <div class="row d-flex align-content-center justify-content-center">
-                <HeadingWrapper>{`State Wise Report`}</HeadingWrapper>
-              </div>
+              <div class="row d-flex flex-column align-content-center justify-content-center">
+                <div>
+                  <HeadingWrapper>{`State Wise Report`}</HeadingWrapper>
+                </div>
 
-              <div class="row">
-                {stateWiseTableData && <DataTable data={stateWiseTableData} />}
+                <div class="col-lg-12">
+                  {stateWiseTableData && (
+                    <DataTable data={stateWiseTableData} />
+                  )}
+                </div>
               </div>
             </div>
           </BodyWrapper>

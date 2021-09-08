@@ -15,7 +15,7 @@ const FAQ = (props) => {
           {QuestionAndAnswers &&
             QuestionAndAnswers.map((value, index) => {
               return (
-                <div class="row col-lg-12">
+                <div class="row">
                   <AccordionCard data={value} key={`faq-card${index}`} />
                 </div>
               );
