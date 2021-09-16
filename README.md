@@ -4,15 +4,17 @@
 
 ## Dependencies (Technology Stack)
 
--React JS
--react-redux
--styled-components
--react-bootstrap
--material UI
--react-router-dom
--axios
--react-chartjs-2
+- React JS
+- react-redux
+- styled-components
+- react-bootstrap
+- material UI
+- react-router-dom
+- axios
+- react-chartjs-2
 
 ## APIs Used
 
-You can find the APIs i used from the below pages. -https://documenter.getpostman.com/view/10724784/SzYXXKmA -https://api.rootnet.in/
+You can find the APIs i used from the below pages. 
+- https://documenter.getpostman.com/view/10724784/SzYXXKmA
+- https://api.rootnet.in/
